@@ -1,57 +1,66 @@
-FAKE_MEDIA_DETECTION
-Overview
-This repository, FAKE_MEDIA_DETECTION, is dedicated to detecting fake media, including deepfake videos, manipulated images, and synthesized audio. Developed by [GMohnish11], it uses advanced machine learning techniques to identify synthetic or altered content, helping to combat misinformation. The project includes scripts for preprocessing, training, and evaluating models, along with support for popular datasets.
-Features
+# FAKE_MEDIA_DETECTION
 
-Deepfake video detection using CNN and RNN architectures.
-Image manipulation detection with pre-trained models.
-Audio deepfake detection via spectral analysis.
-Support for datasets like DFDC, FaceForensics++, and FakeAVCeleb.
-Modular codebase for easy extension and integration.
+## Overview
+This repository, `FAKE_MEDIA_DETECTION`, is dedicated to detecting fake media, including deepfake videos, manipulated images, and synthesized audio. Developed by [GMohnish11], it uses advanced machine learning techniques to identify synthetic or altered content, helping to combat misinformation. The project includes scripts for preprocessing, training, and evaluating models, along with support for popular datasets.
 
-Installation
+## Features
+- Deepfake video detection using CNN and RNN architectures.
+- Image manipulation detection with pre-trained models.
+- Audio deepfake detection via spectral analysis.
+- Support for datasets like DFDC, FaceForensics++, and FakeAVCeleb.
+- Modular codebase for easy extension and integration.
 
-Clone the repository:git clone https://github.com/GMohnish11/FAKE_MEDIA_DETECTION.git
-cd FAKE_MEDIA_DETECTION
+## Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/GMohnish11/FAKE_MEDIA_DETECTION.git
+   cd FAKE_MEDIA_DETECTION
+   ```
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. (Optional) Configure GPU support:
+   - Ensure CUDA and cuDNN are installed for PyTorch or TensorFlow.
+4. Download pre-trained models:
+   ```bash
+   ./scripts/download_models.sh
+   ```
 
-
-Install dependencies:pip install -r requirements.txt
-
-
-(Optional) Configure GPU support:
-Ensure CUDA and cuDNN are installed for PyTorch or TensorFlow.
-
-
-Download pre-trained models:./scripts/download_models.sh
-
-
-
-Usage
-Inference
+## Usage
+### Inference
 To detect fake media:
+```bash
 python src/inference.py --model deepfake_detector --input path/to/media/sample.mp4
-
+```
 Output: Probability of the media being fake.
-Training
+
+### Training
 To train a model:
+```bash
 python src/train.py --dataset path/to/dataset --model deepfake_detector --epochs 30
+```
+Edit `config.yaml` for hyperparameters.
 
-Edit config.yaml for hyperparameters.
-Evaluation
+### Evaluation
 To evaluate a model:
+```bash
 python src/evaluate.py --model path/to/saved_model --dataset path/to/test_dataset
-
+```
 Metrics: Accuracy, F1-score, AUC.
-Datasets
+
+## Datasets
 Supported datasets:
-
-DeepFake Detection Challenge (DFDC): Video deepfakes.
-FaceForensics++: Manipulated videos and images.
-FakeAVCeleb: Audio-video deepfakes.Place datasets in data/ and preprocess using:
-
+- **DeepFake Detection Challenge (DFDC)**: Video deepfakes.
+- **FaceForensics++**: Manipulated videos and images.
+- **FakeAVCeleb**: Audio-video deepfakes.
+Place datasets in `data/` and preprocess using:
+```bash
 python scripts/preprocess.py --dataset dfdc
+```
 
-Directory Structure
+## Directory Structure
+```
 ├── data/                   # Datasets and preprocessed files
 ├── models/                 # Pre-trained and saved models
 ├── scripts/                # Preprocessing and utility scripts
@@ -62,23 +71,24 @@ Directory Structure
 ├── config.yaml             # Configuration settings
 ├── requirements.txt        # Dependencies
 └── README.md               # Project documentation
+```
 
-Contributing
+## Contributing
 Contributions are welcome! To contribute:
+1. Fork the repository.
+2. Create a branch: `git checkout -b feature/your-feature`.
+3. Commit changes: `git commit -m "Add your feature"`.
+4. Push: `git push origin feature/your-feature`.
+5. Submit a Pull Request.
 
-Fork the repository.
-Create a branch: git checkout -b feature/your-feature.
-Commit changes: git commit -m "Add your feature".
-Push: git push origin feature/your-feature.
-Submit a Pull Request.
+Report issues or suggest features via the [Issues](https://github.com/GMohnish11/FAKE_MEDIA_DETECTION/issues) tab.
 
-Report issues or suggest features via the Issues tab.
-License
-Licensed under the MIT License. See LICENSE for details.
-Acknowledgments
+## License
+Licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
-Inspired by research in deepfake detection and media forensics.
-Thanks to dataset providers (DFDC, FaceForensics++, FakeAVCeleb).
+## Acknowledgments
+- Inspired by research in deepfake detection and media forensics.
+- Thanks to dataset providers (DFDC, FaceForensics++, FakeAVCeleb).
 
-Contact
+## Contact
 For inquiries, contact [GMohnish11] via GitHub or open an issue.
