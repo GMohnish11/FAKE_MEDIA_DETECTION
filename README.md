@@ -1,3 +1,5 @@
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+
 # FAKE_MEDIA_DETECTION
 
 ## Overview
